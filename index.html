@@ -3,399 +3,129 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Windows 10-style interactive desktop tribute" />
-    <title>Windows 10 Desktop Tribute</title>
+    <meta name="description" content="deployed pages for kuudere.cc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hub.kuudere.cc/" />
+    <meta property="og:title" content="kuudere hub" />
+    <meta property="og:description" content="deployed pages for kuudere.cc" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="kuudere hub" />
+    <meta name="twitter:description" content="deployed pages for kuudere.cc" />
+    <title>kuudere hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="desktop" aria-label="Windows 10-style desktop">
-      <section class="desktop-icons" aria-label="Desktop shortcuts">
-        <button class="desktop-icon" type="button" data-open="uses">
-          <img class="asset-icon desktop-asset" src="./assets/icons/this-pc.png" alt="" draggable="false" />
-          <span>This PC</span>
-        </button>
-        <button class="desktop-icon" type="button" data-open="documents">
-          <img class="asset-icon desktop-asset" src="./assets/icons/documents.png" alt="" draggable="false" />
-          <span>Friends</span>
-        </button>
-        <button class="desktop-icon" type="button" data-open="github">
-          <img class="asset-icon desktop-asset" src="./assets/icons/folder.png" alt="" draggable="false" />
-          <span>Projects</span>
-        </button>
-        <button class="desktop-icon" type="button" data-open="github">
-          <img class="asset-icon desktop-asset" src="./assets/icons/social-github.svg" alt="" draggable="false" />
-          <span>GitHub</span>
-        </button>
-        <button class="desktop-icon" type="button" data-open="about">
-          <img class="asset-icon desktop-asset" src="./assets/icons/about-me.ico" alt="" draggable="false" />
-          <span>About Me</span>
-        </button>
-        <button class="desktop-icon" type="button" data-open="media">
-          <img class="asset-icon desktop-asset" src="./assets/icons/media-player.svg" alt="" draggable="false" />
-          <span>Media Player</span>
-        </button>
-      </section>
+    <main class="hub-shell" aria-label="kuudere deployed pages hub">
+      <header class="hub-header">
+        <div>
+          <h1><span>kuudere</span> hub</h1>
+        </div>
+        <p class="deploy-count" id="deployCount">3 deployments</p>
+      </header>
 
-      <section class="window explorer-window" id="explorer" style="left: 34%; top: 7%; width: 720px; height: 464px" aria-label="Friends window">
-        <header class="window-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/documents.png" alt="" draggable="false" />
-            <span>Friends</span>
+      <section class="hub-grid">
+        <aside class="panel filters-panel" aria-label="Deployment filters">
+          <div class="panel-label">filters</div>
+          <div class="filter-stack" role="list" aria-label="Filter deployments">
+            <button class="filter-button active" type="button" data-filter="all">all</button>
+            <button class="filter-button" type="button" data-filter="live">live</button>
+            <button class="filter-button" type="button" data-filter="experiments">experiments</button>
           </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="explorer" aria-label="Minimize Friends">-</button>
-            <button type="button" data-maximize="explorer" aria-label="Maximize Friends">□</button>
-            <button type="button" data-close="explorer" aria-label="Close Friends">×</button>
-          </div>
-        </header>
-        <nav class="ribbon" aria-label="Friends ribbon">
-          <button class="selected" type="button">File</button>
-          <button type="button">Home</button>
-          <button type="button">Share</button>
-          <button type="button">View</button>
-        </nav>
-        <div class="address-bar">
-          <button type="button" aria-label="Back">‹</button>
-          <button type="button" aria-label="Forward">›</button>
-          <button type="button" aria-label="Up">⌃</button>
-          <div class="crumb">Desktop &gt; Friends</div>
-          <label class="explorer-search">
-            <span>Search Friends</span>
-            <input aria-label="Search Friends" />
+
+          <label class="search-box">
+            <span>search</span>
+            <input id="deploymentSearch" type="search" autocomplete="off" placeholder="domain / page" />
           </label>
-        </div>
-        <div class="explorer-body">
-          <aside class="explorer-sidebar">
-            <button class="selected" type="button">Friends</button>
-          </aside>
-          <section class="explorer-content">
-            <h2>Friends (6)</h2>
-            <div class="folder-grid">
-              <a href="https://kuudere.cc/nyandere" target="_blank" rel="noreferrer"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/serena.jpg" alt="" draggable="false" /><strong>serena</strong><small>kuudere.cc/nyandere</small></a>
-              <button type="button"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/shad.jpg" alt="" draggable="false" /><strong>shad</strong><small>none</small></button>
-              <button type="button"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/vale.png" alt="" draggable="false" /><strong>vale</strong><small>none</small></button>
-              <button type="button"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/mke.png" alt="" draggable="false" /><strong>mke</strong><small>none</small></button>
-              <button type="button"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/pixel.png" alt="" draggable="false" /><strong>arturiafm</strong><small>none</small></button>
-              <button type="button"><img class="asset-icon folder-asset friend-avatar" src="./assets/friends/lennie.jpg" alt="" draggable="false" /><strong>lennie</strong><small>none</small></button>
+
+          <div class="tiny-note">
+            <p>only pages deployed for kuudere.cc live here.</p>
+            <p class="muted">main, desktop, aimcore.</p>
+          </div>
+
+          <div class="profile-link">
+            <p>github</p>
+            <a href="https://github.com/xtpm" target="_blank" rel="noreferrer">github.com/xtpm</a>
+          </div>
+        </aside>
+
+        <section class="panel deployments-panel" aria-labelledby="deploymentsTitle">
+          <div class="panel-heading">
+            <h2 id="deploymentsTitle">deployments</h2>
+            <span id="visibleCount">3 shown</span>
+          </div>
+          <div class="deployment-list" id="deploymentList" aria-label="Deployed pages"></div>
+        </section>
+
+        <aside class="panel detail-panel" aria-live="polite" aria-label="Selected page info">
+          <div class="panel-heading">
+            <h2>page info</h2>
+            <span id="detailStatus">live</span>
+          </div>
+
+          <div class="preview-frame" id="previewFrame">
+            <div class="preview-noise"></div>
+            <p id="previewDomain">kuudere.cc</p>
+          </div>
+
+          <div class="detail-copy">
+            <p class="detail-kicker" id="detailType">main page</p>
+            <h3 id="detailTitle">kuudere.cc</h3>
+            <p id="detailDescription">the main kuudere page and personal web profile.</p>
+          </div>
+
+          <dl class="meta-list">
+            <div>
+              <dt>url</dt>
+              <dd id="detailUrl">https://kuudere.cc</dd>
             </div>
-            <h2>Status</h2>
-            <p class="empty-recent">Friends list loaded from the desktop profile.</p>
-          </section>
-        </div>
-        <footer class="statusbar">6 friends</footer>
-      </section>
-
-      <section class="window about-window uses-window active" id="uses" style="left: 11%; top: 56%; width: 300px; height: 360px" aria-label="What I Use window">
-        <header class="window-titlebar xp-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/this-pc.png" alt="" draggable="false" />
-            <span>What I Use</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="uses" aria-label="Minimize What I Use">-</button>
-            <button type="button" data-maximize="uses" aria-label="Maximize What I Use">□</button>
-            <button type="button" data-close="uses" aria-label="Close What I Use">x</button>
-          </div>
-        </header>
-        <div class="uses-dialog">
-          <fieldset class="uses-fieldset">
-            <legend>Hardware</legend>
-            <ul>
-              <li><span class="use-icon pc-icon"></span>Ryzen 5 5600X | 16GB | RTX 2070</li>
-              <li><img class="use-icon use-img" src="./assets/icons/hardware-keyboard.svg" alt="" draggable="false" />Wooting 60HE</li>
-              <li><img class="use-icon use-img" src="./assets/icons/hardware-mouse.svg" alt="" draggable="false" />Pulsar Xlite V3 Large</li>
-            </ul>
-          </fieldset>
-          <fieldset class="uses-fieldset">
-            <legend>Software</legend>
-            <ul>
-              <li><img class="use-icon use-img" src="./assets/icons/app-figma.svg" alt="" draggable="false" />Figma</li>
-              <li><img class="use-icon use-img" src="./assets/icons/app-premiere.svg" alt="" draggable="false" />Premiere Pro</li>
-              <li><img class="use-icon use-img" src="./assets/icons/app-after-effects.svg" alt="" draggable="false" />After Effects</li>
-              <li><img class="use-icon use-img" src="./assets/icons/app-photoshop.svg" alt="" draggable="false" />Photoshop</li>
-              <li><img class="use-icon use-img" src="./assets/icons/app-vscode.svg" alt="" draggable="false" />Visual Studio Code</li>
-            </ul>
-          </fieldset>
-        </div>
-      </section>
-
-      <section class="window github-repos-window active" id="github" style="left: 38%; top: 3%; width: 390px; height: 410px" aria-label="GitHub repositories window">
-        <header class="window-titlebar xp-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/social-github.svg" alt="" draggable="false" />
-            <span>Projects</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="github" aria-label="Minimize Projects">-</button>
-            <button type="button" data-maximize="github" aria-label="Maximize Projects">□</button>
-            <button type="button" data-close="github" aria-label="Close Projects">x</button>
-          </div>
-        </header>
-        <div class="repo-window-body">
-          <div class="repo-toolbar">
-            <span>github.com/xtpm</span>
-            <button type="button" id="refreshRepos">Refresh</button>
-          </div>
-          <div class="repo-list" id="repoList" aria-live="polite">
-            <a class="repo-list-row" href="https://github.com/xtpm/kitori" target="_blank" rel="noreferrer">
-              <strong><img src="./assets/icons/folder.png" alt="" draggable="false" />kitori</strong>
-              <span>personal site + friends sites</span>
-              <small><i class="lang-dot ts"></i>TypeScript ★ 0</small>
-            </a>
-            <a class="repo-list-row" href="https://github.com/xtpm/konata" target="_blank" rel="noreferrer">
-              <strong><img src="./assets/icons/folder.png" alt="" draggable="false" />konata</strong>
-              <span>aim+ website</span>
-              <small><i class="lang-dot css"></i>CSS ★ 0</small>
-            </a>
-            <a class="repo-list-row" href="https://github.com/xtpm/haikonami" target="_blank" rel="noreferrer">
-              <strong><img src="./assets/icons/folder.png" alt="" draggable="false" />haikonami</strong>
-              <span>kobeni.net landing page concept</span>
-              <small><i class="lang-dot css"></i>CSS ★ 0</small>
-            </a>
-          </div>
-          <footer class="repo-statusbar">
-            <span>github.com/xtpm</span>
-            <span id="repoCount">3 repos</span>
-          </footer>
-        </div>
-      </section>
-
-      <section class="window github-contrib-window active" id="contributions" style="left: 34%; top: 71%; width: 735px; height: 220px" aria-label="GitHub contributions window">
-        <header class="window-titlebar xp-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/social-github.svg" alt="" draggable="false" />
-            <span>GitHub Contributions</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="contributions" aria-label="Minimize GitHub Contributions">-</button>
-            <button type="button" data-maximize="contributions" aria-label="Maximize GitHub Contributions">□</button>
-            <button type="button" data-close="contributions" aria-label="Close GitHub Contributions">x</button>
-          </div>
-        </header>
-        <div class="contrib-body">
-          <div class="contrib-months" id="contribMonths" aria-hidden="true">
-            <span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
-          </div>
-          <div class="contrib-grid" id="contribGrid" aria-label="GitHub contribution heatmap"></div>
-          <div class="contrib-legend">
-            <span>Less</span><i></i><i></i><i></i><i></i><i></i><span>More</span>
-          </div>
-          <footer class="repo-statusbar contrib-statusbar">
-            <span>github.com/xtpm</span>
-            <span id="contribCount">486 contributions in the last year</span>
-          </footer>
-        </div>
-      </section>
-
-      <section class="window about-window active" id="about" style="left: 10%; top: 3%; width: 410px; height: 350px" aria-label="About me window">
-        <header class="window-titlebar xp-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/about-me.ico" alt="" draggable="false" />
-            <span>About Me</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="about" aria-label="Minimize About Me">-</button>
-            <button type="button" data-maximize="about" aria-label="Maximize About Me">□</button>
-            <button type="button" data-close="about" aria-label="Close About Me">x</button>
-          </div>
-        </header>
-        <div class="about-dialog">
-          <section class="about-top">
-            <div class="lanyard-avatar about-avatar" id="lanyardAvatar">?</div>
-            <div class="about-summary">
-              <p><strong>hello im <span>tpm</span></strong></p>
-              <p>he/him</p>
-              <p><span id="lanyardDot" class="status-dot idle"></span><span id="lanyardStatus" class="presence-status idle">idle</span></p>
+            <div>
+              <dt>last deploy</dt>
+              <dd id="detailDeploy">active</dd>
             </div>
-          </section>
-          <p class="about-text">19<br />emotionally unavailable<br />what's real, will prosper.</p>
-          <fieldset class="social-fieldset">
-            <legend>Socials</legend>
-            <div class="social-buttons">
-              <a href="https://x.com/blehcode" target="_blank" rel="noreferrer"><img class="social-icon" src="./assets/icons/social-twitter.svg" alt="" draggable="false" />twitter @blehcode</a>
-              <a href="https://instagram.com/0mkx" target="_blank" rel="noreferrer"><img class="social-icon" src="./assets/icons/social-instagram.svg" alt="" draggable="false" />instagram @0mkx</a>
-              <a href="https://www.tiktok.com/@zuxm" target="_blank" rel="noreferrer"><img class="social-icon" src="./assets/icons/social-tiktok.svg" alt="" draggable="false" />tiktok @zuxm</a>
-              <a href="https://t.me/nulledserials" target="_blank" rel="noreferrer"><img class="social-icon" src="./assets/icons/social-telegram.svg" alt="" draggable="false" />telegram @nulledserials</a>
-              <a href="https://github.com/xtpm" target="_blank" rel="noreferrer"><img class="social-icon" src="./assets/icons/social-github.svg" alt="" draggable="false" />github @xtpm</a>
+            <div>
+              <dt>tags</dt>
+              <dd id="detailTags">main / profile</dd>
             </div>
-          </fieldset>
-          <div class="lanyard-hidden" aria-live="polite">
-            <span id="lanyardName">Discord presence</span>
-            <div class="lanyard-detail" id="lanyardDetail">Add your Discord user ID in script.js to enable Lanyard.</div>
-            <div class="lanyard-activity" id="lanyardActivity">Waiting for api.lanyard.rest</div>
+          </dl>
+
+          <div class="detail-actions">
+            <a class="action-button primary" id="openDeployment" href="https://kuudere.cc" target="_blank" rel="noreferrer">open</a>
+            <button class="action-button" id="copyDeployment" type="button">copy</button>
           </div>
-        </div>
+          <p class="copy-status" id="copyStatus" role="status"></p>
+        </aside>
       </section>
 
-      <section class="window media-window active" id="media" style="left: 70%; top: 3%; width: 430px; height: 430px" aria-label="Media Player window">
-        <header class="window-titlebar dark-titlebar media-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/media-player.svg" alt="" draggable="false" />
-            <span>Media Player</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="media" aria-label="Minimize Media Player">-</button>
-            <button type="button" data-maximize="media" aria-label="Maximize Media Player">□</button>
-            <button type="button" data-close="media" aria-label="Close Media Player">x</button>
-          </div>
-        </header>
-        <div class="media-body">
-          <div class="media-art" id="mediaArt">
-            <div class="media-placeholder">
-              <span>♪</span>
-              <p>Spotify idle</p>
-            </div>
-          </div>
-          <div class="media-overlay">
-            <div class="media-time-row">
-              <span id="mediaElapsed">0:00</span>
-              <div class="media-progress"><span id="mediaProgress"></span></div>
-              <span id="mediaDuration">0:00</span>
-            </div>
-            <div class="media-info">
-              <strong id="mediaTitle">Nothing playing</strong>
-              <span id="mediaArtist">Spotify via Lanyard</span>
-            </div>
-            <div class="media-controls" aria-hidden="true">
-              <span>⤨</span>
-              <span>‹</span>
-              <button type="button">Ⅱ</button>
-              <span>›</span>
-              <span>↻</span>
-            </div>
-          </div>
+      <section class="panel repos-panel" aria-labelledby="reposTitle">
+        <div class="panel-heading">
+          <h2 id="reposTitle">repos</h2>
+          <a class="github-button" href="https://github.com/xtpm" target="_blank" rel="noreferrer">view github</a>
+        </div>
+        <div class="repo-strip" id="repoStrip" aria-label="GitHub repositories">
+          <a class="repo-chip featured" href="https://github.com/xtpm/hub" target="_blank" rel="noreferrer">
+            <strong>hub</strong>
+            <span>repo for this kuudere deployments hub</span>
+          </a>
+          <a class="repo-chip" href="https://github.com/xtpm/kitori" target="_blank" rel="noreferrer">
+            <strong>kitori</strong>
+            <span>personal site + friends sites</span>
+          </a>
+          <a class="repo-chip" href="https://github.com/xtpm/konata" target="_blank" rel="noreferrer">
+            <strong>konata</strong>
+            <span>aim+ website</span>
+          </a>
+          <a class="repo-chip" href="https://github.com/xtpm/haikonami" target="_blank" rel="noreferrer">
+            <strong>haikonami</strong>
+            <span>kobeni.net landing page concept</span>
+          </a>
         </div>
       </section>
-
-      <section class="window notepad-window" id="notepad" style="left: 57%; top: 56%; width: 560px; height: 292px" aria-label="Notepad window">
-        <header class="window-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/notepad.png" alt="" draggable="false" />
-            <span>Notepad</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="notepad" aria-label="Minimize Notepad">-</button>
-            <button type="button" data-maximize="notepad" aria-label="Maximize Notepad">□</button>
-            <button type="button" data-close="notepad" aria-label="Close Notepad">×</button>
-          </div>
-        </header>
-        <nav class="notepad-menu" aria-label="Notepad menu">
-          <button type="button">File</button>
-          <button type="button">Edit</button>
-          <button type="button">Format</button>
-          <button type="button">View</button>
-          <button type="button">Help</button>
-        </nav>
-        <textarea spellcheck="false" aria-label="Notepad document">kuudere / tpm
-
-professional vibecoder
-what's real, will prosper.
-
-This desktop is a Windows 10-style link hub for my GitHub projects and socials.</textarea>
-        <footer class="notepad-status">
-          <span>Ln 1, Col 1</span>
-          <span>100%</span>
-          <span>Windows (CRLF)</span>
-          <span>UTF-8</span>
-        </footer>
-      </section>
-
-      <section class="window settings-window" id="settings" style="left: 42%; top: 24%; width: 610px; height: 380px" aria-label="Active Projects window">
-        <header class="window-titlebar" data-drag-handle>
-          <div class="title-left">
-            <img class="asset-icon title-asset" src="./assets/icons/folder.png" alt="" draggable="false" />
-            <span>Active Projects</span>
-          </div>
-          <div class="window-controls">
-            <button type="button" data-minimize="settings" aria-label="Minimize Active Projects">-</button>
-            <button type="button" data-maximize="settings" aria-label="Maximize Active Projects">□</button>
-            <button type="button" data-close="settings" aria-label="Close Active Projects">×</button>
-          </div>
-        </header>
-        <div class="settings-body active-projects-body">
-          <h2>Active Projects</h2>
-          <label class="settings-search">
-            <span>Search projects</span>
-            <input aria-label="Search projects" />
-          </label>
-          <div class="settings-grid">
-            <button class="project-card selected" type="button" data-project-title="kuudere.cc" data-project-info="Personal web project and profile space. Currently active."><img class="asset-icon settings-card-icon" src="./assets/icons/folder.png" alt="" draggable="false" /><strong>kuudere.cc</strong><small><i class="project-status active"></i>active project</small></button>
-            <button class="project-card" type="button" data-project-title="kobeni.net" data-project-info="Landing page project with a focused web presence. Currently active."><img class="asset-icon settings-card-icon" src="./assets/icons/folder.png" alt="" draggable="false" /><strong>kobeni.net</strong><small><i class="project-status active"></i>active project</small></button>
-            <button class="project-card" type="button" data-project-title="yotsuba.cc" data-project-info="Domain/project slot for an upcoming site concept. Information can be expanded later."><img class="asset-icon settings-card-icon" src="./assets/icons/folder.png" alt="" draggable="false" /><strong>yotsuba.cc</strong><small><i class="project-status idle"></i>active project</small></button>
-            <button class="project-card" type="button" data-project-title="Luck Software" data-project-info="Software project entry for tools, experiments, or releases under the Luck Software name."><img class="asset-icon settings-card-icon" src="./assets/icons/folder.png" alt="" draggable="false" /><strong>Luck Software</strong><small><i class="project-status idle"></i>active project</small></button>
-            <button type="button"><span>⚙</span><strong>System</strong><small>Display, sound, notifications</small></button>
-            <button type="button"><span>🖥</span><strong>Personalization</strong><small>Background, lock screen, colors</small></button>
-            <button type="button"><span>🌐</span><strong>Network & Internet</strong><small>Wi-Fi, airplane mode, VPN</small></button>
-            <button type="button"><span>🔒</span><strong>Privacy</strong><small>Location, camera, microphone</small></button>
-          </div>
-          <section class="project-detail" aria-live="polite">
-            <button class="project-back" type="button" id="projectBack">Back</button>
-            <strong id="projectDetailTitle">kuudere.cc</strong>
-            <p id="projectDetailText">Personal web project and profile space. Currently active.</p>
-          </section>
-        </div>
-      </section>
-
-      <aside class="start-menu" id="startMenu" aria-label="Start menu">
-        <div class="start-rail">
-          <button type="button" aria-label="Menu">☰</button>
-          <span></span>
-          <button type="button" aria-label="User">◉</button>
-          <button type="button" aria-label="Friends">□</button>
-          <button type="button" data-open="settings" aria-label="Active Projects">⚙</button>
-          <button type="button" aria-label="Power">⏻</button>
-        </div>
-        <div class="app-list">
-          <h2>START</h2>
-          <button type="button" data-open="explorer">Friends</button>
-          <button type="button" data-open="github">GitHub</button>
-          <button type="button" data-open="about">About Me</button>
-          <button type="button" data-open="settings">Active Projects</button>
-          <button type="button">Microsoft Edge</button>
-          <button type="button">Photos</button>
-          <button type="button">Calculator</button>
-        </div>
-        <div class="tiles">
-          <h2>Productivity</h2>
-          <button class="tile dark" type="button" data-open="github"><span class="github-mark" aria-hidden="true">GH</span><strong>GitHub</strong></button>
-          <button class="tile teal" type="button" data-open="about"><img class="asset-icon tile-asset" src="./assets/icons/about-me.ico" alt="" draggable="false" /><strong>About Me</strong></button>
-          <button class="tile orange" type="button" data-open="explorer"><img class="asset-icon tile-asset" src="./assets/icons/documents.png" alt="" draggable="false" /><strong>Friends</strong></button>
-          <button class="tile blue large" type="button" data-open="settings"><img class="asset-icon tile-asset" src="./assets/icons/folder.png" alt="" draggable="false" /><strong>Active Projects</strong></button>
-        </div>
-      </aside>
-
-      <menu class="context-menu" id="contextMenu">
-        <button type="button">View</button>
-        <button type="button">Sort by</button>
-        <button type="button">Refresh</button>
-        <hr />
-        <button type="button">Active projects</button>
-        <button type="button">Personalize</button>
-      </menu>
-
-      <footer class="taskbar" aria-label="Windows 10-style taskbar">
-        <button class="start-button" id="startButton" type="button" aria-label="Start">
-          <img class="asset-icon start-asset" src="./assets/icons/windows-start.svg" alt="" draggable="false" />
-        </button>
-        <label class="task-search">
-          <span aria-hidden="true"></span>
-          <input aria-label="Search" placeholder="Type here to search" />
-        </label>
-        <button class="task-icon" type="button" data-open="github" aria-label="GitHub"><img class="asset-icon task-asset" src="./assets/icons/social-github.svg" alt="" draggable="false" /></button>
-        <button class="task-icon" type="button" data-open="about" aria-label="About Me"><img class="asset-icon task-asset" src="./assets/icons/about-me.ico" alt="" draggable="false" /></button>
-        <button class="task-icon" type="button" data-open="media" aria-label="Media Player"><img class="asset-icon task-asset" src="./assets/icons/media-player.svg" alt="" draggable="false" /></button>
-        <button class="task-icon folder active" type="button" data-open="explorer" aria-label="Friends"><img class="asset-icon task-asset" src="./assets/icons/documents.png" alt="" draggable="false" /></button>
-        <button class="task-icon gear" type="button" data-open="settings" aria-label="Active Projects"><img class="asset-icon task-asset" src="./assets/icons/folder.png" alt="" draggable="false" /></button>
-        <div class="task-spacer"></div>
-        <button class="tray-caret" type="button" aria-label="Show hidden icons"></button>
-        <button class="tray-icon network" type="button" aria-label="Network"></button>
-        <button class="tray-icon volume" type="button" aria-label="Volume"></button>
-        <button class="clock" type="button" aria-label="Date and time">
-          <span id="time">10:24 AM</span>
-          <span id="date">5/20/2024</span>
-        </button>
-        <button class="notify" type="button" aria-label="Action Center"></button>
-      </footer>
     </main>
 
     <script src="./script.js"></script>
