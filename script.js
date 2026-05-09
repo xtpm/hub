@@ -1,12 +1,28 @@
 const deployments = [
   {
+    id: "hub",
+    title: "hub.kuudere.cc",
+    type: "hub",
+    url: "https://hub.kuudere.cc",
+    repo: "xtpm/hub",
+    status: "live",
+    group: "live",
+    lastUpdated: "checking github...",
+    previewImage: "./assets/previews/hub.png",
+    tags: ["hub", "deployments", "directory"],
+    description: "the deployment hub for every page living under kuudere.cc.",
+    accent: "green",
+  },
+  {
     id: "main",
     title: "kuudere.cc",
     type: "main page",
     url: "https://kuudere.cc",
+    repo: "xtpm/kitori",
     status: "live",
     group: "live",
-    lastDeploy: "active",
+    lastUpdated: "checking github...",
+    previewImage: "./assets/previews/main.png",
     tags: ["main", "profile", "portfolio"],
     description: "the main kuudere page and personal web profile.",
     accent: "green",
@@ -16,9 +32,11 @@ const deployments = [
     title: "desktop.kuudere.cc",
     type: "desktop",
     url: "https://desktop.kuudere.cc",
+    repo: "xtpm/senko",
     status: "live",
     group: "live",
-    lastDeploy: "active",
+    lastUpdated: "checking github...",
+    previewImage: "./assets/previews/desktop.png",
     tags: ["desktop", "interactive", "windows"],
     description: "a desktop-style Kuudere page with windows, shortcuts, projects, and profile bits.",
     accent: "cyan",
@@ -28,9 +46,11 @@ const deployments = [
     title: "aim.kuudere.cc",
     type: "aimcore",
     url: "https://aim.kuudere.cc",
+    repo: "xtpm/aimcore",
     status: "live",
     group: "experiments",
-    lastDeploy: "active",
+    lastUpdated: "checking github...",
+    previewImage: "./assets/previews/aimcore.png",
     tags: ["aimcore", "aim", "experiment"],
     description: "the aimcore deployment, kept as its own focused Kuudere page.",
     accent: "violet",
@@ -44,6 +64,7 @@ const deployCount = document.querySelector("#deployCount");
 const visibleCount = document.querySelector("#visibleCount");
 const detailStatus = document.querySelector("#detailStatus");
 const previewFrame = document.querySelector("#previewFrame");
+const previewImage = document.querySelector("#previewImage");
 const previewDomain = document.querySelector("#previewDomain");
 const detailType = document.querySelector("#detailType");
 const detailTitle = document.querySelector("#detailTitle");
@@ -94,12 +115,15 @@ function selectDeployment(deployment) {
   selectedDeployment = deployment;
   detailStatus.textContent = deployment.status;
   previewFrame.dataset.accent = deployment.accent;
+  previewFrame.classList.toggle("has-image", Boolean(deployment.previewImage));
+  previewImage.src = deployment.previewImage || "";
+  previewImage.alt = `${deployment.title} preview`;
   previewDomain.textContent = deployment.title;
   detailType.textContent = deployment.type;
   detailTitle.textContent = deployment.title;
   detailDescription.textContent = deployment.description;
   detailUrl.textContent = deployment.url;
-  detailDeploy.textContent = deployment.lastDeploy;
+  detailDeploy.textContent = deployment.lastUpdated;
   detailTags.textContent = deployment.tags.join(" / ");
   openDeployment.href = deployment.url;
   copyStatus.textContent = "";
@@ -108,6 +132,16 @@ function selectDeployment(deployment) {
     row.classList.toggle("selected", row.dataset.id === deployment.id);
   });
 }
+
+previewImage.addEventListener("error", () => {
+  previewFrame.classList.remove("has-image");
+});
+
+previewImage.addEventListener("load", () => {
+  if (previewImage.getAttribute("src")) {
+    previewFrame.classList.add("has-image");
+  }
+});
 
 function renderDeployments() {
   const items = visibleDeployments();
@@ -131,15 +165,11 @@ function renderDeployments() {
         <div>
           <h3>${escapeHtml(deployment.title)}</h3>
           <p>${escapeHtml(deployment.description)}</p>
+          <small class="row-updated">last updated: ${escapeHtml(deployment.lastUpdated)}</small>
         </div>
       </div>
-      <div class="row-meta">
-        <span>${escapeHtml(deployment.type)}</span>
-        <span>${escapeHtml(deployment.lastDeploy)}</span>
-      </div>
       <div class="row-actions">
-        <a href="${escapeHtml(deployment.url)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(deployment.title)}">open</a>
-        <button type="button" data-copy="${escapeHtml(deployment.id)}" aria-label="Copy ${escapeHtml(deployment.title)} URL">copy</button>
+        <a href="${escapeHtml(deployment.url)}" target="_blank" rel="noreferrer" aria-label="Visit ${escapeHtml(deployment.title)}">visit site</a>
       </div>
     </article>
   `).join("");
@@ -153,13 +183,38 @@ function renderDeployments() {
       selectDeployment(deployment);
     });
   });
+}
 
-  document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const deployment = deployments.find((item) => item.id === button.dataset.copy);
-      copyUrl(deployment);
-    });
+function formatUpdatedAt(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "unknown";
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(date);
+}
+
+async function loadRepoUpdateTimes() {
+  await Promise.allSettled(deployments.map(async (deployment) => {
+    if (!deployment.repo) return;
+    const response = await fetch(`https://api.github.com/repos/${deployment.repo}/commits?per_page=1`);
+    if (!response.ok) throw new Error(`GitHub lookup failed for ${deployment.repo}`);
+    const commits = await response.json();
+    const updatedAt = commits?.[0]?.commit?.committer?.date || commits?.[0]?.commit?.author?.date;
+    deployment.lastUpdated = formatUpdatedAt(updatedAt);
+  }));
+
+  deployments.forEach((deployment) => {
+    if (deployment.lastUpdated === "checking github...") {
+      deployment.lastUpdated = "github unavailable";
+    }
   });
+
+  renderDeployments();
+  selectDeployment(selectedDeployment);
 }
 
 async function copyUrl(deployment = selectedDeployment) {
@@ -184,3 +239,4 @@ copyDeployment.addEventListener("click", () => copyUrl());
 
 renderDeployments();
 selectDeployment(selectedDeployment);
+loadRepoUpdateTimes();
